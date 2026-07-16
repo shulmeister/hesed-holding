@@ -106,6 +106,18 @@ function Approach() {
   );
 }
 
+function Quote() {
+  const q = siteConfig.quote;
+  return (
+    <section className={styles.quote} aria-label="Quote">
+      <div className={styles.column}>
+        <blockquote className={styles.blockquote}>“{q.text}”</blockquote>
+        <p className={styles.attribution}>{q.attribution}</p>
+      </div>
+    </section>
+  );
+}
+
 export default function Page() {
   return (
     <main>
@@ -113,6 +125,7 @@ export default function Page() {
       <Hero />
       <NameSection />
       <Approach />
+      <Quote />
     </main>
   );
 }
