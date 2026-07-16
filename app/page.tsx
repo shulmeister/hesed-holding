@@ -78,12 +78,41 @@ function NameSection() {
   );
 }
 
+function Approach() {
+  const a = siteConfig.approach;
+  return (
+    <section id="practice" className={styles.labelSection} aria-labelledby="approach-kicker">
+      <div className={styles.column}>
+        <div className={styles.labelGrid}>
+          <p className={styles.kicker} id="approach-kicker">{a.kicker}</p>
+          <div>
+            <p className={styles.approachIntro}><Rich html={a.intro} /></p>
+            <div className={styles.principles}>
+              {a.principles.map((p) => (
+                <div key={p.n} className={styles.principle}>
+                  <div className={styles.principleIndex}>
+                    <span className={styles.principleMark} aria-hidden="true" />
+                    <span className={styles.principleN}>{p.n}</span>
+                  </div>
+                  <h3 className={styles.principleTitle}>{p.title}</h3>
+                  <p className={styles.principleBody}><Rich html={p.body} /></p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Page() {
   return (
     <main>
       <Nav />
       <Hero />
       <NameSection />
+      <Approach />
     </main>
   );
 }
