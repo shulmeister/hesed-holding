@@ -27,7 +27,7 @@ export const siteConfig = {
     h1: 'We hold and build companies in software and services — patiently, and for good.',
     subLead: 'Hesed is a private investment holding company. The wealth came first, and we always meant it to do good. We deploy it into two things we understand — ',
     subEmphasis: 'software and services',
-    subTail: ' — and we hold what we buy. Today that is Pipestaff and Colorado CareAssist.',
+    subTail: ' — and we hold what we buy. Today that is Pipestaff, LokiMode and Colorado CareAssist.',
     actions: [
       { label: 'Our holdings →', href: '#holdings', variant: 'secondary' as const },
       { label: 'Contact', href: '#contact', variant: 'secondary' as const },
@@ -80,6 +80,13 @@ export const siteConfig = {
         href: 'https://pipestaff.com',
       },
       {
+        tag: { label: 'Software', variant: 'accent' as const },
+        company: 'LokiMode',
+        body: 'The operating system for modern home care agencies — scheduling, payroll operations, billing and compliance in one system of record. Built and proven inside Colorado CareAssist; in early access.',
+        linkLabel: 'lokimode.com →',
+        href: 'https://lokimode.com',
+      },
+      {
         tag: { label: 'Services', variant: 'neutral' as const },
         company: 'Colorado CareAssist',
         body: 'A licensed Colorado home care agency — personal, dementia, live-in, veterans\' and end-of-life care across the Front Range, since 2012.',
@@ -100,6 +107,7 @@ export const siteConfig = {
     h2: 'We know we are doing good. We intend to keep doing it.',
     buttons: [
       { label: 'Pipestaff →', href: 'https://pipestaff.com' },
+      { label: 'LokiMode →', href: 'https://lokimode.com' },
       { label: 'Colorado CareAssist →', href: 'https://coloradocareassist.com' },
     ],
   },
@@ -118,6 +126,6 @@ export const siteConfig = {
 
   metadata: {
     siteUrl: 'https://hesedhomecare.org',
-    description: 'Hesed holds and builds companies in software and services — patiently, and for good. Today: Pipestaff and Colorado CareAssist.',
+    description: 'Hesed holds and builds companies in software and services — patiently, and for good. Today: Pipestaff, LokiMode and Colorado CareAssist.',
   },
 } as const;
