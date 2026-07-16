@@ -3,6 +3,7 @@ import './globals.css';
 export const metadata = {
   title: 'Hesed — a private investment holding company',
   description: 'Hesed holds and builds companies in software and services — patiently, and for good.',
+  icons: { icon: '/favicon.svg' },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
