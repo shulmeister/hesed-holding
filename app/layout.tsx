@@ -1,9 +1,26 @@
+import type { Metadata } from 'next';
+import { siteConfig } from '../lib/site-config';
 import './globals.css';
 
-export const metadata = {
+export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.metadata.siteUrl),
   title: 'Hesed — a private investment holding company',
-  description: 'Hesed holds and builds companies in software and services — patiently, and for good.',
+  description: siteConfig.metadata.description,
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: '/',
+    siteName: 'Hesed',
+    title: 'Hesed — a private investment holding company',
+    description: siteConfig.metadata.description,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hesed',
+    description: siteConfig.metadata.description,
+  },
   icons: { icon: '/favicon.svg' },
+  alternates: { canonical: '/' },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

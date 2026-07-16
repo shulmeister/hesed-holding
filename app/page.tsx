@@ -126,7 +126,7 @@ function PhotoBand() {
         <img src={p.imagePath} alt="" className={`${styles.photoImage} grayscale`} />
       </figure>
       <div className={styles.column}>
-        <figcaption className={styles.photoCaption}>{p.caption}</figcaption>
+        <p className={styles.photoCaption}>{p.caption}</p>
       </div>
     </section>
   );

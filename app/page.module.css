@@ -310,7 +310,6 @@
   font-weight: 800;
   font-size: 15px;
   text-decoration: none;
-  align-self: start;
 }
 .holdingFootnote {
   font-family: var(--font-body);
