@@ -168,6 +168,40 @@ function Holdings() {
   );
 }
 
+function ClosePoster() {
+  const c = siteConfig.close;
+  return (
+    <section id="contact" className={styles.closePoster} aria-labelledby="close-kicker">
+      <div className={styles.column}>
+        <p className={`${styles.kicker} ${styles.kickerPoster}`} id="close-kicker">{c.kicker}</p>
+        <h2 className={styles.closePosterH2}>{c.h2}</h2>
+        <div className={styles.closePosterActions}>
+          {c.buttons.map((b) => (
+            <a key={b.label} className="btn btn-ghost" href={b.href} target="_blank" rel="noopener">{b.label}</a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CloseQuiet() {
+  const c = siteConfig.close;
+  return (
+    <section id="contact" className={styles.closeQuiet} aria-labelledby="close-kicker">
+      <div className={styles.column}>
+        <p className={styles.kicker} id="close-kicker">{c.kicker}</p>
+        <h2 className={styles.closeQuietH2}>{c.h2}</h2>
+        <div className={styles.closeQuietActions}>
+          {c.buttons.map((b) => (
+            <a key={b.label} className="btn btn-secondary" href={b.href} target="_blank" rel="noopener">{b.label}</a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Page() {
   return (
     <main>
@@ -178,6 +212,7 @@ export default function Page() {
       <Quote />
       {siteConfig.showPortrait && <PhotoBand />}
       <Holdings />
+      {siteConfig.posterClose ? <ClosePoster /> : <CloseQuiet />}
     </main>
   );
 }
