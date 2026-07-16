@@ -12,6 +12,10 @@
 /qualified-caregiver-leads     https://pipestaff.com/qualified-caregiver-leads  301
 /login                         https://pipestaff.com/login           301
 
+/blog                          https://pipestaff.com/blog            301
+/privacy                       https://pipestaff.com/privacy         301
+/terms                         https://pipestaff.com/terms           301
+
 /blog/*                        https://pipestaff.com/blog/:splat    301
 /compare/*                     https://pipestaff.com/compare/:splat 301
 /leads/*                       https://pipestaff.com/leads/:splat   301
