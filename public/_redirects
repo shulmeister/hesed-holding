@@ -1,0 +1,18 @@
+# Hesed Holding Cloudflare Pages _redirects
+# Format: <source> <destination> <status>
+# Legacy Pipestaff product paths on hesedhomecare.org -> pipestaff.com
+# Last rule is the longest-prefix-match: keep splats before any catch-all.
+
+/for-agencies                  https://pipestaff.com/                301
+/signup                        https://pipestaff.com/signup          301
+/pricing                       https://pipestaff.com/pricing         301
+/faq                           https://pipestaff.com/faq             301
+/about                         https://pipestaff.com/about           301
+/careers                       https://pipestaff.com/careers         301
+/qualified-caregiver-leads     https://pipestaff.com/qualified-caregiver-leads  301
+/login                         https://pipestaff.com/login           301
+
+/blog/*                        https://pipestaff.com/blog/:splat    301
+/compare/*                     https://pipestaff.com/compare/:splat 301
+/leads/*                       https://pipestaff.com/leads/:splat   301
+/dashboard/*                   https://pipestaff.com/dashboard/:splat 301
