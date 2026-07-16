@@ -55,11 +55,35 @@ function Hero() {
   );
 }
 
+function Rich({ html }: { html: string }) {
+  return <span dangerouslySetInnerHTML={{ __html: html }} />;
+}
+
+function NameSection() {
+  const n = siteConfig.nameSection;
+  return (
+    <section className={styles.labelSection} aria-labelledby="name-section">
+      <div className={styles.column}>
+        <div className={styles.labelGrid}>
+          <p className={styles.kicker} id="name-section">{n.kicker}</p>
+          <div>
+            <h2 className={styles.labelHeadline}>{n.headline}</h2>
+            {n.paragraphs.map((p, i) => (
+              <p key={i} className={styles.labelBody}><Rich html={p} /></p>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Page() {
   return (
     <main>
       <Nav />
       <Hero />
+      <NameSection />
     </main>
   );
 }

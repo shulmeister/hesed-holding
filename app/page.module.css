@@ -128,3 +128,35 @@
   flex-wrap: wrap;
   margin-top: clamp(20px, 2.5vw, 32px);
 }
+
+/* ---- Label section pattern (The name, Approach intro, Holdings intro) ---- */
+.labelSection {
+  padding: clamp(48px, 7vw, 96px) 0;
+  border-top: 2px solid var(--color-divider);
+}
+.labelGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+  gap: clamp(20px, 4vw, 72px);
+  align-items: start;
+}
+.labelHeadline {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(24px, 3.2vw, 40px);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  margin: 0 0 clamp(16px, 2vw, 24px);
+  max-width: 22ch;
+}
+.labelBody {
+  font-family: var(--font-body);
+  font-size: clamp(15.5px, 1.4vw, 17px);
+  line-height: 1.65;
+  color: color-mix(in srgb, var(--color-text) 82%, transparent);
+  max-width: 60ch;
+  margin: 0 0 clamp(14px, 1.6vw, 20px);
+}
+.labelBody:last-child {
+  margin-bottom: 0;
+}
