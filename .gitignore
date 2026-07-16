@@ -9,3 +9,8 @@ out/
 .vscode/
 .idea/
 .superpowers/sdd/
+# Next.js auto-generated type shim — regenerated on every `next dev`/`next build`.
+# Convention varies; safest to gitignore and let Next regenerate when needed.
+next-env.d.ts
+# TypeScript incremental build cache — never belongs in source.
+*.tsbuildinfo
