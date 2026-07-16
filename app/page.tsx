@@ -123,7 +123,12 @@ function PhotoBand() {
   return (
     <section className={styles.photoBand} aria-label="Photo">
       <figure className={styles.photoFigure}>
-        <img src={p.imagePath} alt="" className={`${styles.photoImage} grayscale`} />
+        <iframe
+          src="/capital-flow.html"
+          title="Capital flow — Hesed deploys into Pipestaff, LokiMode, and Colorado CareAssist"
+          className={styles.photoFrame}
+          loading="lazy"
+        />
       </figure>
       <div className={styles.column}>
         <p className={styles.photoCaption}>{p.caption}</p>
