@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { siteConfig } from '../lib/site-config';
+import organizationJsonLd from '../lib/organization.json';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hesed',
+    title: 'Hesed — a private investment holding company',
     description: siteConfig.metadata.description,
     images: ['/og-image.png'],
   },
@@ -37,6 +38,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Heebo:wght@400;700;900&display=swap"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
       </head>
       <body>{children}</body>

@@ -5,6 +5,7 @@ Hesed is a private investment holding company based in Boulder, Colorado. The na
 ## Holdings
 
 - [Pipestaff](https://pipestaff.com) (software) — performance-based caregiver lead generation for home care agencies
+- [LokiMode](https://lokimode.com) (software) — operating system for modern home care agencies; scheduling, payroll operations, billing and compliance. In early access.
 - [Colorado CareAssist](https://coloradocareassist.com) (services) — licensed Colorado home care agency (License #04Y296)
 
 ## Giving
