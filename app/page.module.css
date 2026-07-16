@@ -46,3 +46,85 @@
 .navLinks a:hover {
   color: var(--color-accent);
 }
+
+/* ---- Hero ---- */
+.hero {
+  padding: clamp(32px, 5vw, 72px) 0 clamp(48px, 7vw, 96px);
+}
+.column {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 72px);
+}
+.kicker {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+  margin: 0;
+}
+.monument {
+  display: block;
+  font-family: 'Heebo', var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(120px, 23vw, 340px);
+  line-height: 0.86;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  text-align: left;
+  margin: clamp(12px, 2vw, 24px) 0 0;
+}
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+  gap: clamp(20px, 4vw, 72px);
+  align-items: start;
+  border-top: 2px solid var(--color-divider);
+  padding-top: clamp(20px, 3vw, 36px);
+  margin-top: clamp(24px, 3vw, 44px);
+}
+.phonetic {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1;
+  margin: 0;
+}
+.pronSub {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+  margin: 8px 0 0;
+}
+.pronSubHeb {
+  font-family: 'Heebo', var(--font-body);
+  font-weight: 700;
+}
+.heroH1 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(30px, 4.4vw, 58px);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  margin: 0 0 clamp(16px, 2vw, 26px);
+  text-wrap: balance;
+  max-width: 22ch;
+}
+.heroSub {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.5vw, 18px);
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--color-text) 82%, transparent);
+  margin: 0;
+  max-width: 60ch;
+}
+.heroActions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: clamp(20px, 2.5vw, 32px);
+}

@@ -21,10 +21,45 @@ function Nav() {
   );
 }
 
+function Hero() {
+  const h = siteConfig.hero;
+  return (
+    <section id="name" className={styles.hero}>
+      <div className={styles.column}>
+        <p className={styles.kicker}>{h.eyebrow}</p>
+        <span lang="he" dir="rtl" className={styles.monument}>{h.monument}</span>
+        <div className={styles.heroGrid}>
+          <div>
+            <p className={styles.phonetic}>{h.phonetic}</p>
+            <p className={styles.pronSub}>
+              {h.pronunciation}
+              <span lang="he" dir="rtl" className={styles.pronSubHeb}>{h.pronunciationHebrew}</span>
+            </p>
+          </div>
+          <div>
+            <h1 className={styles.heroH1}>{h.h1}</h1>
+            <p className={styles.heroSub}>
+              {h.subLead}
+              <strong>{h.subEmphasis}</strong>
+              {h.subTail}
+            </p>
+            <div className={styles.heroActions}>
+              {h.actions.map((a) => (
+                <a key={a.label} className={`btn btn-${a.variant}`} href={a.href}>{a.label}</a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Page() {
   return (
     <main>
       <Nav />
+      <Hero />
     </main>
   );
 }
