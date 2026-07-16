@@ -117,7 +117,7 @@ export const siteConfig = {
   },
 
   metadata: {
-    siteUrl: 'https://hesed.com',  // PLACEHOLDER — update once domain confirmed
+    siteUrl: 'https://hesedhomecare.org',
     description: 'Hesed holds and builds companies in software and services — patiently, and for good. Today: Pipestaff and Colorado CareAssist.',
   },
 } as const;
