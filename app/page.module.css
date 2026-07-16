@@ -238,3 +238,27 @@
   max-width: 56ch;
   margin: clamp(20px, 2.5vw, 32px) 0 0;
 }
+
+/* ---- Photo band ---- */
+.photoBand {
+  border-top: 2px solid var(--color-divider);
+}
+.photoFigure {
+  margin: 0;
+  width: 100%;
+}
+.photoImage {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  filter: grayscale(1) contrast(1.08);
+}
+.photoCaption {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+  margin: 0;
+  padding: 14px 0;
+}

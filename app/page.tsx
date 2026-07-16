@@ -118,6 +118,20 @@ function Quote() {
   );
 }
 
+function PhotoBand() {
+  const p = siteConfig.photoBand;
+  return (
+    <section className={styles.photoBand} aria-label="Photo">
+      <figure className={styles.photoFigure}>
+        <img src={p.imagePath} alt="" className={`${styles.photoImage} grayscale`} />
+      </figure>
+      <div className={styles.column}>
+        <figcaption className={styles.photoCaption}>{p.caption}</figcaption>
+      </div>
+    </section>
+  );
+}
+
 export default function Page() {
   return (
     <main>
@@ -126,6 +140,7 @@ export default function Page() {
       <NameSection />
       <Approach />
       <Quote />
+      {siteConfig.showPortrait && <PhotoBand />}
     </main>
   );
 }
