@@ -13,13 +13,18 @@ export const metadata: Metadata = {
     siteName: 'Hesed',
     title: 'Hesed — a private investment holding company',
     description: siteConfig.metadata.description,
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Hesed — a private investment holding company' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Hesed',
     description: siteConfig.metadata.description,
+    images: ['/og-image.png'],
   },
-  icons: { icon: '/favicon.svg' },
+  icons: {
+    icon: [{ url: '/favicon.ico', sizes: '32x32' }, { url: '/favicon.svg', type: 'image/svg+xml' }],
+    apple: '/apple-touch-icon.png',
+  },
   alternates: { canonical: '/' },
 };
 
