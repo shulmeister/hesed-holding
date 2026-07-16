@@ -132,6 +132,42 @@ function PhotoBand() {
   );
 }
 
+function Holdings() {
+  const h = siteConfig.holdings;
+  return (
+    <section id="holdings" className={styles.labelSection} aria-labelledby="holdings-kicker">
+      <div className={styles.column}>
+        <div className={styles.labelGrid}>
+          <p className={styles.kicker} id="holdings-kicker">{h.kicker}</p>
+          <div>
+            <h2 className={styles.labelHeadline}>{h.headline}</h2>
+            <p className={styles.holdingsBody}>{h.intro}</p>
+            <div className={styles.holdingsRows}>
+              {h.rows.map((r) => (
+                <div key={r.company} className={styles.holdingRow}>
+                  <div className={styles.holdingCol1}>
+                    <span className={`tag tag-${r.tag.variant}`}>{r.tag.label}</span>
+                    <h3 className={styles.holdingCompany}>{r.company}</h3>
+                  </div>
+                  <div className={styles.holdingCol2}><p>{r.body}</p></div>
+                  <div className={styles.holdingCol3}>
+                    <a href={r.href} target="_blank" rel="noopener">{r.linkLabel}</a>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className={styles.holdingFootnote}>
+              {h.footnote.lead}
+              <a href={h.footnote.href} target="_blank" rel="noopener">{h.footnote.linkLabel}</a>
+              {h.footnote.tail}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Page() {
   return (
     <main>
@@ -141,6 +177,7 @@ export default function Page() {
       <Approach />
       <Quote />
       {siteConfig.showPortrait && <PhotoBand />}
+      <Holdings />
     </main>
   );
 }
