@@ -202,6 +202,39 @@ function CloseQuiet() {
   );
 }
 
+function Footer() {
+  const f = siteConfig.footer;
+  return (
+    <footer className={styles.footer}>
+      <div className={styles.column}>
+        <div className={styles.footerInner}>
+          <div className={styles.footerLeft}>
+            <p className={styles.footerBrandLine}>
+              {f.brandLine.brand}<span>{f.brandLine.tail}</span>
+            </p>
+            <p>
+              {f.addressLine}
+              <a href={f.phone.href}>{f.phone.label}</a>
+            </p>
+            <p className={styles.footerLicense}>{f.licenseLine}</p>
+          </div>
+          <div className={styles.footerRight}>
+            <p>
+              {f.holdingsLeadLabel + ' '}
+              {f.holdingsLine.map((h, i) => (
+                <span key={h.href}>
+                  {i > 0 && ' · '}
+                  <a href={h.href} target="_blank" rel="noopener">{h.label}</a>
+                </span>
+              ))}
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
 export default function Page() {
   return (
     <main>
@@ -213,6 +246,7 @@ export default function Page() {
       {siteConfig.showPortrait && <PhotoBand />}
       <Holdings />
       {siteConfig.posterClose ? <ClosePoster /> : <CloseQuiet />}
+      <Footer />
     </main>
   );
 }
