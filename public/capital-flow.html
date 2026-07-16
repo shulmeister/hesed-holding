@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hesed — capital, deployed and held</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Heebo:wght@400;700;900&display=swap">
+<style>
+  html,body{margin:0;height:100%;background:#f3f2f2;}
+  #wrap{position:relative;width:100%;height:100vh;overflow:hidden;background:#f3f2f2;}
+  canvas{display:block;width:100%;height:100%;}
+</style>
+</head>
+<body>
+<div id="wrap"><canvas id="c"></canvas></div>
+<script>
+(function(){
+  const cv = document.getElementById('c');
+  const wrap = document.getElementById('wrap');
+  const ctx = cv.getContext('2d');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const BG='#f3f2f2', INK='#201e1d', ACCENT='#ec3013', ACCENT7='#ae1800';
+  const ink = a => `rgba(32,30,29,${a})`;
+
+  let W=0,H=0,DPR=1;
+  function resize(){
+    DPR = Math.min(window.devicePixelRatio||1, 2);
+    W = wrap.clientWidth; H = wrap.clientHeight;
+    cv.width = Math.round(W*DPR); cv.height = Math.round(H*DPR);
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+  }
+  new ResizeObserver(resize).observe(wrap); resize();
+
+  const S = () => H/700;
+
+  function qbez(p0,p1,p2,t){
+    const u=1-t;
+    return { x:u*u*p0.x+2*u*t*p1.x+t*t*p2.x, y:u*u*p0.y+2*u*t*p1.y+t*t*p2.y };
+  }
+
+  function geom(){
+    const s=S(), cy=H*0.50;
+    const src   = { x: W*0.075, y: cy };
+    const origin= { x: W*0.325, y: cy };
+    const pipe  = { x: W*0.500, y: H*0.190 };
+    const loki  = { x: W*0.500, y: H*0.470 };
+    const serv  = { x: W*0.500, y: H*0.810 };
+    const gigi  = { x: W*0.545, y: H*0.640 };
+    const cPipe = { x: W*0.405, y: H*0.235 };
+    const cLoki = { x: W*0.405, y: H*0.480 };
+    const cServ = { x: W*0.405, y: H*0.700 };
+    const cGigi = { x: W*0.500, y: H*0.575 };
+    return {s,cy,src,origin,pipe,loki,serv,gigi,cPipe,cLoki,cServ,cGigi};
+  }
+
+  const DUR = 4200, N = 4;
+
+  function drawGrid(){
+    ctx.strokeStyle = ink(0.05); ctx.lineWidth = 1;
+    for(let i=1;i<12;i++){const x=Math.round(W*i/12)+0.5;ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+    for(let i=1;i<6;i++){const y=Math.round(H*i/6)+0.5;ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+  }
+
+  function kicker(text,x,y,color,size){
+    ctx.font=`800 ${size}px Archivo, sans-serif`; ctx.fillStyle=color;
+    ctx.textAlign='left'; ctx.textBaseline='alphabetic';
+    ctx.letterSpacing=`${Math.max(1,size*0.14)}px`;
+    ctx.fillText(text.toUpperCase(), x, y);
+    ctx.letterSpacing='0px';
+  }
+
+  function drawHesed(g){
+    const s=g.s, x=g.src.x, cy=g.cy;
+    ctx.fillStyle=ACCENT; ctx.fillRect(x, cy-98*s, 42*s, 42*s);
+    ctx.fillStyle=INK; ctx.textAlign='left'; ctx.textBaseline='alphabetic';
+    ctx.font=`800 ${62*s}px Archivo, sans-serif`;
+    ctx.fillText('Hesed', x, cy-6*s);
+    const wm = ctx.measureText('Hesed').width;
+    ctx.font=`700 ${28*s}px Heebo, sans-serif`; ctx.fillStyle=ink(0.5);
+    ctx.fillText('\u05D7\u05B6\u05E1\u05B6\u05D3', x+wm+15*s, cy-13*s);
+    kicker('Investment holding company', x, cy+28*s, ACCENT7, 13*s);
+    ctx.font=`400 ${15*s}px Archivo, sans-serif`; ctx.fillStyle=ink(0.55);
+    ctx.fillText('Built on Jewish values \u00B7 held, not traded', x, cy+55*s);
+  }
+
+  function drawNode(g, node, opt){
+    const s=g.s, small=opt.small;
+    const sq = (small?14:22)*s;
+    ctx.fillStyle = opt.tint;
+    ctx.fillRect(node.x-sq/2, node.y-sq/2, sq, sq);
+    if(node.pulse>0.01){
+      const r = sq/2 + (1-node.pulse)*(small?22:34)*s;
+      ctx.strokeStyle=`rgba(236,48,19,${0.5*node.pulse})`; ctx.lineWidth=2;
+      ctx.strokeRect(node.x-r, node.y-r, r*2, r*2);
+    }
+    const tx = node.x + sq/2 + (small?16:22)*s;
+    kicker(opt.kick, tx, node.y-(small?9:14)*s, opt.kickColor||ACCENT7, (small?10:12)*s);
+    ctx.fillStyle=INK; ctx.textAlign='left'; ctx.textBaseline='alphabetic';
+    ctx.font=`800 ${(small?21:31)*s}px Archivo, sans-serif`;
+    ctx.fillText(opt.title, tx, node.y+(small?11:15)*s);
+    ctx.font=`400 ${(small?13:15)*s}px Archivo, sans-serif`; ctx.fillStyle=ink(0.6);
+    ctx.fillText(opt.sub, tx, node.y+(small?30:40)*s);
+    if(opt.held){
+      const bw=140*s, bh=4*s, by=node.y+54*s;
+      ctx.fillStyle=ink(0.14); ctx.fillRect(tx, by, bw, bh);
+      ctx.fillStyle=ACCENT; ctx.fillRect(tx, by, bw, bh);
+    }
+  }
+
+  function connector(from,to,ctrl,alpha,w){
+    ctx.strokeStyle=ink(alpha); ctx.lineWidth=w;
+    ctx.beginPath(); ctx.moveTo(from.x,from.y);
+    ctx.quadraticCurveTo(ctrl.x,ctrl.y,to.x,to.y); ctx.stroke();
+  }
+
+  function flow(g,from,to,ctrl,off,count,size,t,decay){
+    let pulse=0;
+    for(let i=0;i<count;i++){
+      let p = reduce ? ((i/count)+off)%1 : (((t/DUR)+off+i/count)%1);
+      const e = p<0.5 ? 2*p*p : 1-Math.pow(-2*p+2,2)/2;
+      const pt = qbez(from,ctrl,to,e);
+      ctx.fillStyle=ACCENT;
+      ctx.globalAlpha = Math.min(1, Math.sin(Math.PI*Math.min(p*1.15,1)))*0.9+0.1;
+      ctx.fillRect(pt.x-size/2, pt.y-size/2, size, size);
+      ctx.globalAlpha=1;
+      if(p>0.92) pulse=Math.max(pulse,(p-0.92)/0.08);
+    }
+    return pulse;
+  }
+
+  let start = performance.now();
+  const st = { pipe:{pulse:0}, loki:{pulse:0}, serv:{pulse:0}, gigi:{pulse:0} };
+
+  function frame(now){
+    const t=now-start, g=geom(), s=g.s;
+    ctx.clearRect(0,0,W,H); ctx.fillStyle=BG; ctx.fillRect(0,0,W,H);
+    drawGrid();
+    kicker('Deploying capital \u2014 software & services', W*0.075, H*0.125, ink(0.4), 12*s);
+
+    // connectors
+    connector(g.origin,g.pipe,g.cPipe,0.28,2);
+    connector(g.origin,g.loki,g.cLoki,0.28,2);
+    connector(g.origin,g.serv,g.cServ,0.28,2);
+    connector(g.loki,g.gigi,g.cGigi,0.20,1.5);
+
+    // particle flows + pulses
+    let p;
+    p=flow(g,g.origin,g.pipe,g.cPipe,0.00,N,6*s,t); st.pipe.pulse+=(p-st.pipe.pulse)*0.25;
+    p=flow(g,g.origin,g.loki,g.cLoki,0.33,N,6*s,t); st.loki.pulse+=(p-st.loki.pulse)*0.25;
+    p=flow(g,g.origin,g.serv,g.cServ,0.66,N,6*s,t); st.serv.pulse+=(p-st.serv.pulse)*0.25;
+    p=flow(g,g.loki,g.gigi,g.cGigi,0.15,2,4*s,t);   st.gigi.pulse+=(p-st.gigi.pulse)*0.25;
+    if(reduce){st.pipe.pulse=st.loki.pulse=st.serv.pulse=0.15;st.gigi.pulse=0.1;}
+
+    drawNode(g,{x:g.pipe.x,y:g.pipe.y,pulse:st.pipe.pulse},{tint:ACCENT,kick:'Software',title:'Pipestaff',sub:'Caregiver hiring, at scale',held:true});
+    drawNode(g,{x:g.loki.x,y:g.loki.y,pulse:st.loki.pulse},{tint:ACCENT,kick:'Software',title:'LokiMode',sub:'The operating system for home care',held:true});
+    drawNode(g,{x:g.serv.x,y:g.serv.y,pulse:st.serv.pulse},{tint:INK,kick:'Services',title:'Colorado CareAssist',sub:'Home care across the Front Range',held:true});
+    drawNode(g,{x:g.gigi.x,y:g.gigi.y,pulse:st.gigi.pulse},{tint:ink(0.55),kick:'Inside LokiMode',kickColor:ink(0.45),title:'Gigi',sub:'The intelligence inside',small:true});
+    drawHesed(g);
+
+    requestAnimationFrame(frame);
+  }
+
+  if(document.fonts && document.fonts.ready){
+    Promise.race([document.fonts.ready, new Promise(r=>setTimeout(r,1200))]).then(()=>{start=performance.now();requestAnimationFrame(frame);});
+  } else { requestAnimationFrame(frame); }
+})();
+</script>
+</body>
+</html>

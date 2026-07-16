@@ -253,6 +253,13 @@
   aspect-ratio: 16 / 7;
   filter: grayscale(1) contrast(1.08);
 }
+/* The capital-flow canvas animation is already in brand colors — no grayscale. */
+.photoFrame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  border: 0;
+}
 .photoCaption {
   font-family: var(--font-body);
   font-size: 13px;
