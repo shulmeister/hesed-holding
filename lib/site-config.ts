@@ -62,8 +62,6 @@ export const siteConfig = {
   },
 
   photoBand: {
-    imagePath: '/images/photo-placeholder.jpg',
-    alt: '',  // decorative; caption provides context
     caption: 'Held, not traded.',
   },
 
