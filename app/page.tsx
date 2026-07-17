@@ -89,11 +89,7 @@ function Approach() {
             <p className={styles.approachIntro}><Rich html={a.intro} /></p>
             <div className={styles.principles}>
               {a.principles.map((p) => (
-                <div key={p.n} className={styles.principle}>
-                  <div className={styles.principleIndex}>
-                    <span className={styles.principleMark} aria-hidden="true" />
-                    <span className={styles.principleN}>{p.n}</span>
-                  </div>
+                <div key={p.title} className={styles.principle}>
                   <h3 className={styles.principleTitle}>{p.title}</h3>
                   <p className={styles.principleBody}><Rich html={p.body} /></p>
                 </div>
@@ -125,7 +121,7 @@ function PhotoBand() {
       <figure className={styles.photoFigure}>
         <iframe
           src="/capital-flow.html"
-          title="Capital flow — Hesed deploys into Pipestaff, LokiMode, and Colorado CareAssist"
+          title="Capital flow: Hesed deploys into Pipestaff, LokiMode, and Colorado CareAssist"
           className={styles.photoFrame}
           loading="lazy"
         />
@@ -151,7 +147,7 @@ function Holdings() {
               {h.rows.map((r) => (
                 <div key={r.company} className={styles.holdingRow}>
                   <div className={styles.holdingCol1}>
-                    <span className={`tag tag-${r.tag.variant}`}>{r.tag.label}</span>
+                    <span className={styles.holdingCat}>{r.tag.label}</span>
                     <h3 className={styles.holdingCompany}>{r.company}</h3>
                   </div>
                   <div className={styles.holdingCol2}><p>{r.body}</p></div>

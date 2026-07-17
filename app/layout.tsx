@@ -5,20 +5,20 @@ import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.metadata.siteUrl),
-  title: 'Hesed — a private investment holding company',
+  title: 'Hesed, a private investment holding company',
   description: siteConfig.metadata.description,
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: '/',
     siteName: 'Hesed',
-    title: 'Hesed — a private investment holding company',
+    title: 'Hesed, a private investment holding company',
     description: siteConfig.metadata.description,
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Hesed — a private investment holding company' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Hesed, a private investment holding company' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hesed — a private investment holding company',
+    title: 'Hesed, a private investment holding company',
     description: siteConfig.metadata.description,
     images: ['/og-image.png'],
   },

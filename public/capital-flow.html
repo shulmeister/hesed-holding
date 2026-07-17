@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hesed — capital, deployed and held</title>
+<title>Hesed · capital, deployed and held</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Heebo:wght@400;700;900&display=swap">
@@ -22,7 +22,7 @@
   const ctx = cv.getContext('2d');
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const BG='#f3f2f2', INK='#201e1d', ACCENT='#ec3013', ACCENT7='#ae1800';
+  const BG='#f3f2f2', INK='#201e1d', ACCENT='#14233f', ACCENT7='#1b2b48', GOLD='#c99633';
   const ink = a => `rgba(32,30,29,${a})`;
 
   let W=0,H=0,DPR=1;
@@ -93,7 +93,7 @@
     ctx.fillRect(node.x-sq/2, node.y-sq/2, sq, sq);
     if(node.pulse>0.01){
       const r = sq/2 + (1-node.pulse)*(small?22:34)*s;
-      ctx.strokeStyle=`rgba(236,48,19,${0.5*node.pulse})`; ctx.lineWidth=2;
+      ctx.strokeStyle=`rgba(201,150,51,${0.5*node.pulse})`; ctx.lineWidth=2;
       ctx.strokeRect(node.x-r, node.y-r, r*2, r*2);
     }
     const tx = node.x + sq/2 + (small?16:22)*s;
@@ -106,7 +106,7 @@
     if(opt.held){
       const bw=140*s, bh=4*s, by=node.y+54*s;
       ctx.fillStyle=ink(0.14); ctx.fillRect(tx, by, bw, bh);
-      ctx.fillStyle=ACCENT; ctx.fillRect(tx, by, bw, bh);
+      ctx.fillStyle=GOLD; ctx.fillRect(tx, by, bw, bh);
     }
   }
 
@@ -122,7 +122,7 @@
       let p = reduce ? ((i/count)+off)%1 : (((t/DUR)+off+i/count)%1);
       const e = p<0.5 ? 2*p*p : 1-Math.pow(-2*p+2,2)/2;
       const pt = qbez(from,ctrl,to,e);
-      ctx.fillStyle=ACCENT;
+      ctx.fillStyle=GOLD;
       ctx.globalAlpha = Math.min(1, Math.sin(Math.PI*Math.min(p*1.15,1)))*0.9+0.1;
       ctx.fillRect(pt.x-size/2, pt.y-size/2, size, size);
       ctx.globalAlpha=1;
@@ -138,7 +138,7 @@
     const t=now-start, g=geom(), s=g.s;
     ctx.clearRect(0,0,W,H); ctx.fillStyle=BG; ctx.fillRect(0,0,W,H);
     drawGrid();
-    kicker('Deploying capital \u2014 software & services', W*0.075, H*0.125, ink(0.4), 12*s);
+    kicker('Deploying capital \u00b7 software & services', W*0.075, H*0.125, ink(0.4), 12*s);
 
     // connectors
     connector(g.origin,g.pipe,g.cPipe,0.28,2);
