@@ -9,7 +9,7 @@
       "alternateName": "Hesed Home Care",
       "url": "https://hesedhomecare.org/",
       "logo": "https://hesedhomecare.org/favicon.svg",
-      "description": "Hesed holds and builds companies in software and services — patiently, and for good. Today: Pipestaff, LokiMode and Colorado CareAssist.",
+      "description": "Hesed holds and builds companies in software and services, patiently and for good. Today: Pipestaff, LokiMode, and Colorado CareAssist.",
       "areaServed": { "@type": "Country", "name": "United States" },
       "address": {
         "@type": "PostalAddress",
@@ -30,19 +30,19 @@
           "@type": "Organization",
           "name": "Pipestaff",
           "url": "https://pipestaff.com/",
-          "description": "Exclusive caregiver hiring leads for home care agencies — CNAs, HHAs and aides routed to one agency each."
+          "description": "Exclusive caregiver hiring leads for home care agencies. CNAs, HHAs, and aides, each routed to a single agency."
         },
         {
           "@type": "Organization",
           "name": "LokiMode",
           "url": "https://lokimode.com/",
-          "description": "Operating system for modern home care agencies — scheduling, payroll operations, billing and compliance in one system of record."
+          "description": "The operating system for a modern home care agency: scheduling, payroll operations, billing, and compliance in one system of record."
         },
         {
           "@type": "Organization",
           "name": "Colorado CareAssist",
           "url": "https://coloradocareassist.com/",
-          "description": "Licensed Colorado home care agency — personal, dementia, live-in, veteran and end-of-life care across the Front Range, since 2012."
+          "description": "A licensed Colorado home care agency. Personal and dementia care, live-in care, care for veterans, and end-of-life support across the Front Range, since 2012."
         }
       ],
       "sameAs": ["http://www.hesedfoundation.org/"]

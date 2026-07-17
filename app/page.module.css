@@ -29,7 +29,7 @@
   display: inline-block;
   width: 14px;
   height: 14px;
-  background: var(--color-accent);
+  background: var(--color-accent-2);
 }
 .navLinks {
   display: flex;
@@ -175,29 +175,11 @@
 }
 .principle {
   display: grid;
-  grid-template-columns: minmax(56px, 84px) minmax(0, 300px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
   gap: clamp(16px, 3vw, 56px);
   align-items: start;
   padding: clamp(26px, 3.5vw, 44px) 0;
   border-top: 2px solid var(--color-divider);
-}
-.principleIndex {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-.principleMark {
-  display: block;
-  width: 10px;
-  height: 10px;
-  background: var(--color-accent);
-}
-.principleN {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 15px;
-  line-height: 1;
-  font-feature-settings: 'tnum' 1;
 }
 .principleTitle {
   font-family: var(--font-heading);
@@ -247,13 +229,7 @@
   margin: 0;
   width: 100%;
 }
-.photoImage {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 7;
-  filter: grayscale(1) contrast(1.08);
-}
-/* The capital-flow canvas animation is already in brand colors — no grayscale. */
+/* The capital-flow canvas animation is already in brand colors, no grayscale. */
 .photoFrame {
   display: block;
   width: 100%;
@@ -296,6 +272,14 @@
   flex-direction: column;
   gap: 12px;
   align-items: flex-start;
+}
+.holdingCat {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
 }
 .holdingCompany {
   font-family: var(--font-heading);

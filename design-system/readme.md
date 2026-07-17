@@ -1,6 +1,6 @@
 # Modernist design system
 
-Modernist is flat, architectural and set entirely in Archivo: a near-mono red on white, a visible modular grid, zero corner radius and strong 2px rules. Nothing floats and nothing is decorated — alignment and the strength of the dividers do all the organising, labels sit flush left (even inside buttons), and photography prints in pure black and white.
+Modernist is flat, architectural and set entirely in Archivo: deep navy with a warm gold accent on a light ground, a visible modular grid, zero corner radius and strong 2px rules. Nothing floats and nothing is decorated — alignment and the strength of the dividers do all the organising, labels sit flush left (even inside buttons), and photography prints in pure black and white.
 
 ## How to use this
 
@@ -15,7 +15,7 @@ Modular grid layouts — content in equal-width cells, strong horizontal and ver
 
 ## Color
 
-A light ground (`--color-bg` #f3f2f2) with `--color-text` #201e1d and a single accent #ec3013 (this is a mono scheme: no second accent was chosen — the `--color-accent-2-*` variables carry a machine-derived stand-in kept only so both sets resolve; treat them as one role). Each role carries a 100–900 tonal ramp (`--color-neutral-100` … `--color-accent-2-900`) generated in OKLCH on a shared perceptual lightness scale, so the same step of any ramp has the same visual weight. Use the light steps (100–300) for tinted fills, hovers and subtle borders, 500 as the role's base, and the dark steps (700–900) for text on tinted fills and for pressed states; prefer ramp steps over ad-hoc `color-mix()`. For elevation use `--shadow-sm/md/lg` (already tuned to the ground) rather than ad-hoc box-shadows.
+A light ground (`--color-bg` #f3f2f2) with `--color-text` #201e1d, a deep-navy accent #14233f (`--color-accent`) for structure, links and the poster field, and a warm-gold second accent #c99633 (`--color-accent-2`) for small emphasis, so the page reads as kin to the Hesed Home Care brand page. Each role carries a 100–900 tonal ramp (`--color-neutral-100` … `--color-accent-2-900`) generated in OKLCH on a shared perceptual lightness scale, so the same step of any ramp has the same visual weight. Use the light steps (100–300) for tinted fills, hovers and subtle borders, 500 as the role's base, and the dark steps (700–900) for text on tinted fills and for pressed states; prefer ramp steps over ad-hoc `color-mix()`. For elevation use `--shadow-sm/md/lg` (already tuned to the ground) rather than ad-hoc box-shadows.
 
 ## Type
 
@@ -49,7 +49,7 @@ States are built in: hovers and pressed states come from the accent ramp, keyboa
 
 - Let the grid show: equal-width cells, strong horizontal rules between sections, visible structure.
 - Keep everything flush left — headings, copy, and the labels inside wide buttons.
-- Use the accent sparingly, for the primary action and small emphasis; the system is mostly ink on ground. The one place red runs as a field is the poster statement — the deck's section dividers and the landing's closing banner — where type stays display-grade and the accent carries the page.
+- Use the accent sparingly, for the primary action and small emphasis; the system is mostly ink on ground. The one place the navy runs as a field is the poster statement — the landing's closing banner — where type stays display-grade and the accent carries the page.
 - Print photographs in black and white with the `.grayscale` wrapper.
 
 ## Don't
